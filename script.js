@@ -32,8 +32,6 @@ function success(position) {
     //select for element on the page. use getElementByIDd to update content of the <p> element with id "location"
     document.getElementById("location").innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
 
-    var img_url = "http://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=20&size=640x640&maptype=satellite&sensor=false&key=AIzaSyCuFG-NOikYAj9JOBS3oD_nhuSxlu_T8v4";
-    document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "'>";
 }
 
 

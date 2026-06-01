@@ -1,163 +1,91 @@
 /* CSS styles */
 
-html {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     height: 100vh;
     width: 100vw;
-    color: var(--primary-color);
     font-family: "IBM Plex Mono", monospace;
     font-weight: 300;
     font-style: normal;
-    cursor: none; /*this hides the default cursor*/
+    cursor: none;
 }
 
 #cursors {
-  margin: 0;
-  position: absolute;
-  z-index: 999;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 
 .custom-cursor {
-  position: absolute;
-  z-index: 1000;
-  width: 50px;
-  height: 10px;
-  background-color: black;
-  pointer-events: none;
-  transform-origin: 50% 0%;
-  border-radius: 1px;
+    position: absolute;
+    z-index: 1000;
+    width: 50px;
+    height: 10px;
+    background-color: black;
+    pointer-events: none;
+    transform-origin: 50% 0%;
+    border-radius: 1px;
 }
 
 .cursor-shadow {
-  position: absolute;
-  z-index: 999;
-  width: 50px;
-  height: 10px;
-  background-color: rgba(0, 0, 0, 0.25);
-  pointer-events: none;
-  transform-origin: 50% 0%;
-  border-radius: 1px;
-  filter: blur(3px);
+    position: absolute;
+    z-index: 999;
+    width: 50px;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+    transform-origin: 50% 0%;
+    border-radius: 1px;
+    filter: blur(3px);
 }
 
-hr {
+.info-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    text-align: left;
-    margin-left: 0;
-    height: 1px;
-    opacity: 0.8;
-    color: var(--primary-color);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: start;
+    padding: 1.5em 2em;
+    gap: 2em;
 }
 
-.container {
-  display: inline-block;
-  min-height: 90vh;
+.info-col h4 {
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5em;
 }
 
-#mapholder {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  z-index: -1000; /*Embed map at the bottom */
-  opacity: 30%;
-}
-#mapholder img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  z-index: -1000;
+.info-col label {
+    display: block;
+    font-size: 0.75rem;
+    margin-bottom: 0.3em;
 }
 
-/* Font Family Reference
-.ibm-plex-mono-thin {
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 100;
-    font-style: normal;
-  }
+.info-col p {
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
 
-.ibm-plex-mono-extralight {
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 200;
-    font-style: normal;
-  }
-
-  .ibm-plex-mono-light {
+input[type="text"] {
     font-family: "IBM Plex Mono", monospace;
     font-weight: 300;
-    font-style: normal;
-  }
-
-  .ibm-plex-mono-regular {
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  .ibm-plex-mono-medium {
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 500;
-    font-style: normal;
-  }
-
-  .ibm-plex-mono-semibold {
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 600;
-    font-style: normal;
-  }
-
-  .ibm-plex-mono-bold {
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 700;
-    font-style: normal;
-  }
-
-  .ibm-plex-mono-thin-italic {
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 100;
-    font-style: italic;
-  }
-
-  .ibm-plex-mono-extralight-italic {
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 200;
-    font-style: italic;
-  }
-
-  .ibm-plex-mono-light-italic {
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 300;
-    font-style: italic;
-  }
-
-  .ibm-plex-mono-regular-italic {
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 400;
-    font-style: italic;
-  }
-
-  .ibm-plex-mono-medium-italic {
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 500;
-    font-style: italic;
-  }
-
-  .ibm-plex-mono-semibold-italic {
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 600;
-    font-style: italic;
-  }
-
-  .ibm-plex-mono-bold-italic {
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 700;
-    font-style: italic;
-  }
-
-    */
+    font-size: 0.75rem;
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    width: 80px;
+    outline: none;
+}
