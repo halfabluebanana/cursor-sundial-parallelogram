@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title> Cursor Sundial </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=yes">
-    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -25,7 +25,16 @@
 
     <div id="cursors">
         <div class="custom-cursor"></div>
-        <div class="cursor-shadow"></div>
+        <svg id="shadow-svg" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:998;">
+          <defs>
+              <filter id="sf" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="5"/>
+              </filter>
+          </defs>
+          <polygon id="shadow-poly" fill="rgba(0,0,0,0.3)" filter="url(#sf)"/>
+      </svg>
+
+        <!-- <div class="cursor-shadow"></div> -->
     </div>
 
     <div class="info-bar">
@@ -48,11 +57,17 @@
             <label>Azimuth <input type="text" id="shadowAngle" readonly> deg</label>
             <label>Length <input type="text" id="shadowLength" readonly></label>
         </div>
+
+        <div class = "info-col">
+            <h4>Time</h4>
+            <label>Time <input type="text" id="simTime" readonly></label>
+        </div>
     </div>
 
     <script src="script.js"></script>
     <script src="suncalculation.js"></script>
     <script src="cursor.js" defer></script>
+    <script src="simulate.js"></script>
 
 </body>
 
